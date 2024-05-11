@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title>Pipboy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+
+        <header>
+            <nav>
+                <ul id="nav-bar">
+                    <li class="active-tab">DASH</li>
+                    <li>CAKE</li>
+                    <li>NUKE</li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main">
+            <div id="section-dashboard">
+                <p>Jour 2554</p>
+                <p>
+                    État du Bunker : <br>
+                    Le bunker de l'Abri 666 est irradié à 85%, avec des réserves de nourriture et d'eau dangereusement faibles.
+                </p>
+                <p>
+                    Population : <br>
+                    Le nombre de survivants est réduit à une seule personne.
+                </p>
+                <p>
+                    Mesures d'Urgence : <br>
+                    Des efforts immédiats sont nécessaires pour décontaminer le bunker, renforcer les provisions et trouver de l'eau potable.
+                </p>
+                <p>
+                    Conclusion : <br>
+                    L'Abri 666 est confronté à une crise critique nécessitant une action urgente pour garantir la survie de son unique occupant.
+                </p>
+                <p>
+                    Fin du rapport</p>
+            </div>
+    
+            <div id="section-cake">
+                <p>The <a href="https://en.wikipedia.org/wiki/The_cake_is_a_lie" target="_blank">cake</a> is a lie</p>
+
+            </div>
+    
+            <div id="section-nuke">
+                <button>NUKE</button>
+                <p>Nuke myself</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const navElements = document.getElementById("nav-bar").querySelectorAll("li");
+        const mainElements = document.getElementById("main").querySelectorAll("div")
+
+        mainElements.forEach(div=>{
+            div.style.display = "none"
+        })
+
+        mainElements[0].style.display = "block"
+
+        navElements.forEach((li)=>{
+            li.addEventListener("click", (element)=>{
+
+                navElements.forEach(li=>{
+                    li.classList.remove("active-tab")
+                })
+
+                li.classList.add("active-tab")
+
+                mainElements.forEach(div=>{
+                    div.style.display = "none"
+                
+                    switch (li.textContent) {
+                        case "DASH":
+                            document.getElementById("section-dashboard").style.display = "block"
+                            break;
+                        case "CAKE":
+                            document.getElementById("section-cake").style.display = "flex"
+                            break;
+
+                        case "NUKE":
+                            document.getElementById("section-nuke").style.display = "flex"
+                            break;
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
